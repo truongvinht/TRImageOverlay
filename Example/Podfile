@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TRImageOverlay_Example' do
+  pod 'TRImageOverlay', :path => '../'
+
+  target 'TRImageOverlay_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
