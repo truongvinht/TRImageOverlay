@@ -3,7 +3,7 @@
 //  TRImageOverlay
 //
 //  Created by Truong Vinh Tran on 08/02/2020.
-//  Copyright (c) 2020 Truong Vinh Tran. All rights reserved.
+//  Copyright © 2020 Truong Vinh Tran. All rights reserved.
 //
 
 import UIKit
@@ -19,6 +19,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
-

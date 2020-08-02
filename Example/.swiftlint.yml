@@ -1,0 +1,47 @@
+included:
+  - TRImageOverlay
+  - Example
+  - ../TRImageOverlay
+excluded:
+  - Pods
+  - DerivedData
+  - Tests
+opt_in_rules:
+  - empty_count
+  - file_header
+  - explicit_init
+  - closure_spacing
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - nimble_operator
+  - attributes
+  - operator_usage_whitespace
+  - closure_end_indentation
+  - first_where
+  - object_literal
+  - number_separator
+  - prohibited_super_call
+  - fatal_error_message
+  - vertical_parameter_alignment_on_call
+disabled_rules:
+  - trailing_whitespace
+  - vertical_whitespace
+  - sorted_imports
+
+file_header:
+  required_pattern: |
+                    \/\/
+                    \/\/  .*?\.swift
+                    \/\/  .*?
+                    \/\/
+                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/\d{4}\.
+                    \/\/  Copyright © \d{4} Truong Vinh Tran\. All rights reserved\.
+                    \/\/
+identifier_name:
+  excluded:
+    - id
+line_length: 500
+cyclomatic_complexity:
+  ignores_case_statements: true
+number_separator:
+  minimum_length: 5

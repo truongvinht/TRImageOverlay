@@ -44,7 +44,7 @@
 		607FACE51AFB9204008FA782 /* TRImageOverlay_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRImageOverlay_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6A7CBEBC73639340DCAD7987 /* TRImageOverlay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TRImageOverlay.podspec; path = ../TRImageOverlay.podspec; sourceTree = "<group>"; };
+		6A7CBEBC73639340DCAD7987 /* TRImageOverlay.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TRImageOverlay.podspec; path = ../TRImageOverlay.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8FB29A65EA2F6360B8473106 /* Pods-TRImageOverlay_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRImageOverlay_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TRImageOverlay_Tests/Pods-TRImageOverlay_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4C2750176F42C5C43EE312E /* Pods_TRImageOverlay_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRImageOverlay_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -171,6 +171,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				2A4C62D6A3FB9E4E0E5D5B6E /* [CP] Embed Pods Frameworks */,
+				1E8E2D3624D6DA2D00968332 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -261,6 +262,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1E8E2D3624D6DA2D00968332 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		2A4C62D6A3FB9E4E0E5D5B6E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

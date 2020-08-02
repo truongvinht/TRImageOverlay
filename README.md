@@ -1,9 +1,6 @@
 # TRImageOverlay
 
-[![CI Status](https://img.shields.io/travis/Truong Vinh Tran/TRImageOverlay.svg?style=flat)](https://travis-ci.org/Truong Vinh Tran/TRImageOverlay)
-[![Version](https://img.shields.io/cocoapods/v/TRImageOverlay.svg?style=flat)](https://cocoapods.org/pods/TRImageOverlay)
-[![License](https://img.shields.io/cocoapods/l/TRImageOverlay.svg?style=flat)](https://cocoapods.org/pods/TRImageOverlay)
-[![Platform](https://img.shields.io/cocoapods/p/TRImageOverlay.svg?style=flat)](https://cocoapods.org/pods/TRImageOverlay)
+# STATUS INCOMPLETE
 
 ## Example
 
