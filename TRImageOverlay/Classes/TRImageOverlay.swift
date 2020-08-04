@@ -70,73 +70,18 @@ public class TRImageOverlay {
             - content: string for displaying
         - Returns: image layer with text
     */
-    public func generateFull(content: String) -> UIImage? {
-        let frame = CGRect(origin: CGPoint.zero, size: self.size)
-        
-        // use tmp label for getting size
-        let tmpLabel = UILabel()
-        tmpLabel.font = self.font
-        tmpLabel.text = content
-        
-        let fontSize = tmpLabel.intrinsicContentSize
-        
-        UIGraphicsBeginImageContext(frame.size)
-         if let context = UIGraphicsGetCurrentContext() {
-            
-            let entries = numberOfColumnsAndRows(within: frame.size, objectSize: fontSize)
-
-            let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = NSTextAlignment.left
-            
-            var fColor = self.fgColor
-            var bColor = self.bgColor
-            
-            if UIColor.clear != fColor && self.alpha < 1 {
-                fColor = self.fgColor.withAlphaComponent(self.alpha)
-            }
-            
-            if UIColor.clear != bColor && self.alpha < 1 {
-                bColor = self.bgColor.withAlphaComponent(self.alpha)
-            }
-            
-            
-            let attributes = [
-                NSAttributedString.Key.foregroundColor: fColor,
-                NSAttributedString.Key.backgroundColor: bColor,
-                NSAttributedString.Key.font: self.font,
-                NSAttributedString.Key.paragraphStyle: paragraphStyle
-            ]
-            context.saveGState()
-            //context.translateBy(x: 500, y: 500)
-            //context.rotate(by: 20 * CGFloat(M_PI / 180))
-            
-            for row in 0...entries.x {
-                for column in 0...entries.y {
-
-                    
-                    let text = NSString(string: content)
-                    let labelFrame = position(within: frame.size, objectSize: fontSize, row: row, column: column)
-                    
-                    text.draw(at: labelFrame.origin, withAttributes: attributes)
-                }
-            }
-            context.restoreGState()
-            
-            let nameImage = UIGraphicsGetImageFromCurrentImageContext()
-            
-            guard let image = nameImage else {
-                return UIImage()
-            }
-            
-            return image
-         }
-        
-        return nil
+    public func generateOverlay(content: String) -> UIImage? {
+        return generate(content: content, with: 0)
     }
     
     // should be redesigned
     private func generate(content: String, with number: Int) -> UIImage? {
         
+        // disallow empty content
+        if content.isEmpty {
+            return nil
+        }
+        
         let frame = CGRect(origin: CGPoint.zero, size: self.size)
         
         // use tmp label for getting size
@@ -145,9 +90,6 @@ public class TRImageOverlay {
         tmpLabel.text = content
         
         let fontSize = tmpLabel.intrinsicContentSize
-        
-
-        print("Base: \(fontSize)")
         
         UIGraphicsBeginImageContext(frame.size)
          if let context = UIGraphicsGetCurrentContext() {
@@ -168,7 +110,6 @@ public class TRImageOverlay {
                 bColor = self.bgColor.withAlphaComponent(self.alpha)
             }
             
-            
             let attributes = [
                 NSAttributedString.Key.foregroundColor: fColor,
                 NSAttributedString.Key.backgroundColor: bColor,
@@ -182,7 +123,6 @@ public class TRImageOverlay {
             for row in 0...entries.x {
                 for column in 0...entries.y {
 
-                    
                     let text = NSString(string: content)
                     let labelFrame = position(within: frame.size, objectSize: fontSize, row: row, column: column)
                     
@@ -203,6 +143,13 @@ public class TRImageOverlay {
         return nil
     }
     
+    /**
+     Calculate number of columns and rows based on object size and image size
+        - Parameters:
+            - within: image size
+            - objectSize: input size
+        - Returns: x: number of columns, y: number of rows
+    */
     private func numberOfColumnsAndRows(within: CGSize, objectSize: CGSize) -> (x: Int, y: Int) {
         
         // empty object

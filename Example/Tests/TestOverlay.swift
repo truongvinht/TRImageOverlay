@@ -16,7 +16,7 @@ class TestOverlay: XCTestCase {
     func testCreatingOverlay() {
         let overlay = TRImageOverlay(with: CGSize(width: 1000, height: 1000))
         
-        guard let img = overlay.generateFull(content: "Example") else {
+        guard let img = overlay.generateOverlay(content: "Example") else {
             print("image not generate")
             return
         }
@@ -28,10 +28,10 @@ class TestOverlay: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-    func testCreatingToSmallOverlay() {
+    func testCreatingTooSmallOverlay() {
         let overlay = TRImageOverlay(with: CGSize(width: 1, height: 1))
         
-        guard let img = overlay.generateFull(content: "Example") else {
+        guard let img = overlay.generateOverlay(content: "Example") else {
             print("image not generate")
             return
         }
@@ -41,6 +41,16 @@ class TestOverlay: XCTestCase {
             try? jpegData.write(to: name)
         }
         XCTAssert(true, "Pass")
+    }
+    
+    func testCreatingEmptyOverlay() {
+        let overlay = TRImageOverlay(with: CGSize(width: 100, height: 100))
+        
+        guard let _ = overlay.generateOverlay(content: "") else {
+            XCTAssert(true, "Content is empty as expected")
+            return
+        }
+        XCTAssert(false, "Content is not empty")
     }
     
     func testPerformanceExample() {
