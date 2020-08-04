@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         // init new overlay
         let overlay = TRImageOverlay(with: CGSize(width: 1000, height: 1000))
         
-        guard let img = overlay.generate(content: "ZXM", with: 10) else {
+        guard let img = overlay.generateFull(content: "Example") else {
             print("image not generate")
             return
         }
