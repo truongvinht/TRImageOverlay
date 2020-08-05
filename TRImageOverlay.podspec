@@ -17,7 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'A framework for generating overlay image based on input string. Many configurations like font or color available for adjustment.'
+  s.description      = <<-DESC
+A framework for generating overlay image based on input string. Many configurations like font or color available for adjustment.
+                       DESC
 
   s.homepage         = 'https://github.com/truongvinht/TRImageOverlay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
