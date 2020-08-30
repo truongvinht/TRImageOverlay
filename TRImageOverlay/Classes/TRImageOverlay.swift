@@ -36,19 +36,19 @@ public class TRImageOverlay {
     private var size: CGSize
     
     /// background color, default is white
-    var bgColor: UIColor = UIColor.clear
+    public var bgColor: UIColor = UIColor.clear
     
     /// alpha value of overlay, default value is 1
-    var alpha: CGFloat = 1.0
+    public var alpha: CGFloat = 1.0
     
     
     // MARK: - Content
     
     /// font with default size 12
-    var font: UIFont = UIFont.systemFont(ofSize: 12)
+    public var font: UIFont = UIFont.systemFont(ofSize: 12)
     
     /// text color
-    var fgColor: UIColor = UIColor.black
+    public var fgColor: UIColor = UIColor.black
     
     /// number of generated text items
     private var number: Int = 10
